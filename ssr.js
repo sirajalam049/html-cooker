@@ -12,7 +12,7 @@ async function ssr(url) {
             return REQUEST_CACHE[url]['html'];
         }
     };
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle0' })
     const html = await page.content(); // serialized HTML of page DOM.
