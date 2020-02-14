@@ -12,13 +12,18 @@ async function ssr(url) {
             return REQUEST_CACHE[url]['html'];
         }
     };
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
-    const page = await browser.newPage();
-    await page.goto(url, { waitUntil: 'networkidle0' })
-    const html = await page.content(); // serialized HTML of page DOM.
-    await browser.close();
-    REQUEST_CACHE[url] = { ttl: now, html };
-    return html;
+    try {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto(url, { waitUntil: 'networkidle0' })
+        const html = await page.content(); // serialized HTML of page DOM.
+        await browser.close();
+        REQUEST_CACHE[url] = { ttl: now, html };
+        return html;
+    } catch (error) {
+        console.log('Error', error);
+        throw new Error(error);
+    }
 }
 
 module.exports = ssr;
