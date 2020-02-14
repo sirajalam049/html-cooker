@@ -1,0 +1,29 @@
+{
+  "name": "htmlcooker",
+  "version": "1.0.0",
+  "description": "This package cooks the html page and also store it in the memory for a defined timeout and serve it from the cache. It is useful for the one page applications to allow crawlers and bots to serve a static html page cooked from the url of a SPA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sirajalam049/html-cooker.git"
+  },
+  "keywords": [
+    "html",
+    "puppeteer",
+    "single",
+    "page",
+    "application",
+    "caching",
+    "static",
+    "pages"
+  ],
+  "author": "Siraj Alam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirajalam049/html-cooker/issues"
+  },
+  "homepage": "https://github.com/sirajalam049/html-cooker#readme"
+}
