@@ -13,7 +13,7 @@ async function ssr(url) {
         }
     };
     try {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
         const page = await browser.newPage();
         await page.goto(url, { waitUntil: 'networkidle0' })
         const html = await page.content(); // serialized HTML of page DOM.
