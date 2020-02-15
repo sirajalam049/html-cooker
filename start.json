@@ -1,5 +1,5 @@
 {
     "name": "html-cooker",
     "script": "index.js",
-    "log_date_format": "DD-MM-YYYY hh:mm z"
+    "log_date_format": "DD-MM-YYYY hh:mm"
 }
