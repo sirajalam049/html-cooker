@@ -4,9 +4,9 @@ const TIMEOUT_DURATION_HOURS = 24 * 30;
 const TIMEOUT_DURATION_SECONDS = 30;
 const REQUEST_CACHE = {};
 
-async function ssr(url) {
+async function ssr(url, force = false) {
     const now = +new Date();
-    if (REQUEST_CACHE[url]) {
+    if (REQUEST_CACHE[url] && force === false) {
         const diffInHrs = (now - REQUEST_CACHE[url]['ttl']) / (1000 * 3600);
         if (diffInHrs < TIMEOUT_DURATION_HOURS) {
             return REQUEST_CACHE[url]['html'];
@@ -25,5 +25,7 @@ async function ssr(url) {
         throw new Error(error);
     }
 }
+
+
 
 module.exports = ssr;
